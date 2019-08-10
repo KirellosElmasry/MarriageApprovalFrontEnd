@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>Please enter Emirates ID:</h3>
+            <input  [(ngModel)]='eid' class="form-control" id="eId">
+            <button (click)="onClickMe()">Check</button>
+
+            <h1 class = "alert">{{errorMessage}}</h1>
+            <div class="data">
+                <app-persondata [personData]="person" *ngIf="showData"></app-persondata>                   
+            </div>            
+        </div>
+    </div>
+</div>
