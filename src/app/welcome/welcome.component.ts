@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-welcome',
@@ -21,7 +20,4 @@ export class WelcomeComponent implements OnInit {
     this.router.navigate(['checkme']);   
   }
 
-  public newPerson() {
-    this.router.navigate(['newperson']);   
-  }
 }

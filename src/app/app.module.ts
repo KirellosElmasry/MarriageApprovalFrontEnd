@@ -10,12 +10,14 @@ import { PersondataComponent } from './persondata/persondata.component';
 import { person } from "./classes/person";
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NewpersonComponent } from './newperson/newperson.component';
+import { SecondclearanceComponent } from './secondclearance/secondclearance.component';
 
 const appRoutes: Routes = [
   {path: 'checkme', component: checkmeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'welcome', component: WelcomeComponent},
-  {path: 'newperson', component: NewpersonComponent}
+  {path: 'newperson', component: NewpersonComponent},
+  {path: 'secondClearance', component: SecondclearanceComponent}
 ];
 
 @NgModule({
@@ -25,7 +27,8 @@ const appRoutes: Routes = [
     LoginComponent,
     PersondataComponent,
     WelcomeComponent,
-    NewpersonComponent
+    NewpersonComponent,
+    SecondclearanceComponent
   ],
   imports: [
     BrowserModule,

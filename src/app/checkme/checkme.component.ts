@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RestService } from '../rest.service';
 import { person } from "../classes/person";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-check-me',
@@ -9,13 +10,14 @@ import { person } from "../classes/person";
 })
 export class checkmeComponent {
   showData : boolean;
-  errorMessage : string;
+  userNotFound : number;
   eid : string;
   person = new person();
 
 
-  constructor(public rest: RestService) {
+  constructor(public rest: RestService, private router:Router ) {
     this.showData = false;
+    this.userNotFound  = 0;
    }
 
 
@@ -29,16 +31,23 @@ export class checkmeComponent {
       //show user found popup  
       this.person = res;  
       this.showData = true;
-      this.errorMessage = "";
+      this.userNotFound  = 0;
 
     }, (err) => {
       if (err.status == 404)
         console.log("User not found!");
-      this.errorMessage = "Person not found !";
+        this.userNotFound  =  1;
       this.person = new person();
       this.showData = false;
     }
     );
   }
 
+  
+  public secondClearance() {
+    this.router.navigate(['secondClearance']);   
+  }
+  public newDocument() {
+    this.router.navigate(['newperson']);   
+  }
 }

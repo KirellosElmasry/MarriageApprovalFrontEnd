@@ -1,11 +1,15 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 example-button-row">
             <h3>Please enter Emirates ID:</h3>
             <input  [(ngModel)]='eid' class="form-control" id="eId">
-            <button (click)="onClickMe()">Check</button>
-
-            <h1 class = "alert">{{errorMessage}}</h1>
+            <button mat-raised-button color="primary" (click)="onClickMe()">Check</button>
+           
+            <button mat-raised-button color="primary"  *ngIf="showData" (click)="secondClearance()">Second Clearance</button>
+            <button mat-raised-button color="primary" *ngIf="userNotFound == 1" (click)="newDocument()">Create New Document</button>
+            
+           
+            <h1 class = "alert" *ngIf="userNotFound == 1">Person not found !</h1>
             <div class="data">
                 <app-persondata [personData]="person" *ngIf="showData"></app-persondata>                   
             </div>            

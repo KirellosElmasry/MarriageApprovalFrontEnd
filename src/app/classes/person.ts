@@ -38,5 +38,10 @@ export class person
     divorced: number;
     court: string;
     caseNum: number;
-    
+    caseDate: Date;
+    marriageApprovalSource: string;
+    marriageApprovalDate: Date;
+    childsNum: number;
+    childAge: string;
+    childsBiptesm: string;
 }

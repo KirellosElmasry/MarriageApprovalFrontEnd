@@ -5,3 +5,17 @@ h3{
 .alert{
     color: red;
 }
+.example-button-row button {
+    background-color: #2991ab;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 25%;  
+    margin-right: 8px;
+}
+#eId{
+    height: 35px;
+    margin: 10px;
+}
