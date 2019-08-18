@@ -29,10 +29,17 @@ export class checkmeComponent {
     console.log(this.eid);
     this.rest.getPerson(this.eid).subscribe(res => {
       //show user found popup  
-      this.person = res;  
-      this.showData = true;
-      this.userNotFound  = 0;
-
+      this.person = res;
+      console.log("res "+res);
+      if(!this.person.name){
+        console.log("User not found!");
+        this.userNotFound  =  1;
+        this.person = new person();
+        this.showData = false;
+      }else{ 
+        this.showData = true;
+        this.userNotFound  = 0;
+      }
     }, (err) => {
       if (err.status == 404)
         console.log("User not found!");
