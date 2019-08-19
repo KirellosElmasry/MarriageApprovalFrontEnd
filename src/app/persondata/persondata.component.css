@@ -1,0 +1,15 @@
+table {
+    width :75%;
+    border-collapse: collapse;
+  }
+  tr { 
+    border: solid;
+    border-width: 1px 0;
+  }
+  td{
+    padding: 20px;
+    font-size: 30px;    
+  }
+  .middle{
+      color: blue;
+  }
