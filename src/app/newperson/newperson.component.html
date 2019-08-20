@@ -1,3 +1,56 @@
-<p>newperson works!</p>
+<table >
+    <tr> <td>Reference Number </td> <td class="referenceNumber"><input type="text" class="label"  [(ngModel)]='personData.referenceNumber'> </td>  <td> الرقم المرجعي </td></tr>   
+    <tr> <td>church </td> <td class="middle"><input type="text" class="label"  [(ngModel)]='personData.church'> </td>  <td> الكنيسه </td></tr>
+    
+    <tr><td>name</td>  <td class="middle"><input type="text" class="label"  [(ngModel)]='personData.name'></td>   <td>الاسم الثلاثي</td>  </tr>
+    
+    <tr><td>birthDate </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.birthDate'>  </td>  <td> تاريخ الميلاد </td> </tr>
+    <tr><td>placeOfBirth </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.placeOfBirth'>  </td>  <td> مكان الميلاد </td> </tr>
+    
+    <tr><td>baptismDate </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.baptismDate'>  </td>  <td>  تاريخ العماد </td> </tr>
+    <tr><td>placeOfBaptism </td>  <td class="middle"><input type="text" class="label"  [(ngModel)]='personData.placeOfBaptism'>  </td>  <td>  مكان العماد</td> </tr>
+    
+    <tr><td>EID </td>  <td  class="middle"><input type="text" class="label"  [(ngModel)]='personData.EID'> </td>  <td> رقم الهويه</td> </tr>
+    <tr><td>edQualification </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.edQualification'>  </td>  <td>  المؤهل </td> </tr>
+    
+    <tr><td>address </td>  <td class="middle"><input type="text" class="label"  [(ngModel)]='personData.address'>  </td>  <td>  العنوان</td> </tr>
+    <tr><td>militaryStatus </td>  <td class="middle"><input type="text" class="label"  [(ngModel)]='personData.militaryStatus'> </td>  <td>  الموقف من التجنيد</td> </tr>
+    <tr><td>jobTitle </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.jobTitle'>  </td>  <td>  العمل</td> </tr>
+    <tr><td>jobAddress </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.jobAddress'>  </td>  <td>  عنوان العمل</td> </tr>
+    <tr><td>relatedChurch </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.relatedChurch'> </td>  <td>  الكنيسه التابع لها</td> </tr>
+    <tr><td>confessorPriest </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.confessorPriest'>  </td>  <td>  اب الاعتراف</td> </tr>
+    <tr><td>confessorChurch </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.confessorChurch'> </td>  <td>  كنيسه اب الاعتراف</td> </tr>
+    <tr><td>confessionRate </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.confessionRate'>  </td>  <td>  معدل الاعتراف</td> </tr>
+    <tr><td>eucharistRate </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.eucharistRate'>  </td>  <td>  معدل التناول</td> </tr>
+    <tr><td>foreignCountryName </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.foreignCountryName'>  </td>  <td>  السفر الي الخارج</td> </tr>
+    <tr><td>foreignCountryDate </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.foreignCountryDate'>  </td>  <td>  تاريخ السفر</td> </tr>
+    <tr><td>engagedBefore </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.engagedBefore'>  </td>  <td>  خطوبه سابقه</td> </tr>
+    <tr><td>marriedOutside </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.marriedOutside'>  </td>  <td>  زواج داخل مصر المكان و التاريخ و الكاهن</td> </tr>
+    <tr><td>marriedInside </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.marriedInside'> </td>  <td> زواج خارج مصر المكان و التاريخ و الكاهن </td> </tr>
+    <tr><td>churchMarriage </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.churchMarriage'>  </td>  <td> زواج كنسي</td> </tr>
+    <tr><td>marriagePlace </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.marriagePlace'>  </td>  <td>  مكان الزواج</td> </tr>
+    <tr><td>marriagePriest </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.marriagePriest'> </td>  <td> الاب الكاهن</td> </tr>
+    <tr><td>civilMarriage </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.civilMarriage'> </td>  <td>  جهه الزواج المدني </td> </tr>
+    <tr><td>civilMarriageDate </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.civilMarriageDate'> </td>  <td> تاريخ الزواج المدني </td> </tr>
+    <tr><td>maritalStatus </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.maritalStatus'> </td>  <td> الحاله الاجتماعيه</td> </tr>
+    <tr><td>widowhoodDate </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.widowhoodDate'> </td>  <td> تاريخ الترمل</td> </tr>
+    <tr><td>marriedBeforeWidowhood </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.marriedBeforeWidowhood'> </td>  <td> زواج قبل الترمل</td> </tr>
+    <tr><td>marriageBeforeWidowhoodInfo </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.marriageBeforeWidowhoodInfo'> </td>  <td> بمن و متي و اين </td> </tr>
+    <tr><td>divorced </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.divorced'> </td>  <td> مطلق</td> </tr>
+    <tr><td>court </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.court'> </td>  <td> المحكمه</td> </tr>
+    <tr><td>caseNum </td>  <td class="middle"> <input type="text" class="label"  [(ngModel)]='personData.caseNum'> </td>  <td> رقم القضيه</td> </tr>
+    <tr><td>CaseDate </td>  <td  class="middle"> <input type="text" class="label"  [(ngModel)]='personData.CaseDate'> </td>  <td> تاريخ القضيه</td> </tr>
+    <tr><td>marriageApprovalSource </td>  <td  class="middle"> <input type="text" class="label"  [(ngModel)]='personData.marriageApprovalSource'> </td>  <td> مصدر التصريح بالزواج</td> </tr>
+    <tr><td>marriageApprovalDate </td>  <td  class="middle"> <input type="text" class="label"  [(ngModel)]='personData.marriageApprovalDate'> </td>  <td> تاريخ التصريح بالزواج</td> </tr>
+    <tr><td>childsNum </td>  <td  class="middle"> <input type="text" class="label"  [(ngModel)]='personData.childsNum'> </td>  <td> عدد الاولاد</td> </tr>
+    <tr><td>childAges </td>  <td  class="middle"> <input type="text" class="label"  [(ngModel)]='personData.childAges'> </td>  <td> اعمارهم</td> </tr>
+    <tr><td>childsBiptesm </td>  <td  class="middle"> <input type="text" class="label"  [(ngModel)]='personData.childsBiptesm'> </td>  <td> عمادهم</td> </tr>
+    <tr><td>familyLinks </td>  <td  class="middle"> <input type="text" class="label"  [(ngModel)]='personData.familyLinks'> </td>  <td> نوع القرابه</td> </tr>
+    
+    <tr><td>maritalState </td>  <td  class="middle"> <input type="text" class="label"  [(ngModel)]='personData.maritalState'>  </td>  <td> الحاله الاجتماعيه</td> </tr>
+    <tr><td>createdDate </td>  <td  class="middle"> <input type="text" class="label"  [(ngModel)]='personData.createdDate'> </td>  <td> تاريخ تحرير الوثيقه</td> </tr>
+    <tr><td>lastModified </td>  <td  class="middle"> <input type="text" class="label"  [(ngModel)]='personData.lastModified'>  </td>  <td> تاريخ اخر تعديل</td> </tr>
+    
+    </table>
 
-
+    <button class="button" (click)="save()">Save</button>

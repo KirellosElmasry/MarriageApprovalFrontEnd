@@ -1,5 +1,6 @@
 export class person
 {
+    referenceNumber: string;
     church: string;
     name: string;
     maritalState: string;
