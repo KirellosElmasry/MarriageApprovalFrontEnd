@@ -2,13 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
+import { person } from './classes/person';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestService {
 
+  person : person;
+
   endpoint = 'http://localhost:8080/api/';
+  
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -28,6 +32,10 @@ export class RestService {
       map(this.extractData));
   }
 
+  savePerson(person: person): Observable<any> {
+    return this.http.post(this.endpoint + 'newPerson/', person).pipe(
+      map(this.extractData));
+  }
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

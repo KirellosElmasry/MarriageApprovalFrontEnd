@@ -11,6 +11,8 @@ import { person } from "./classes/person";
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NewpersonComponent } from './newperson/newperson.component';
 import { SecondclearanceComponent } from './secondclearance/secondclearance.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatInputModule,MatNativeDateModule , MatCardModule, MatFormFieldModule, MatCheckboxModule, MatDatepickerModule, MatRadioModule, MatSelectModule } from '@angular/material';
 
 const appRoutes: Routes = [
   {path: 'checkme', component: checkmeComponent},
@@ -35,9 +37,11 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    MatInputModule, MatButtonModule, MatCardModule, MatNativeDateModule, MatFormFieldModule, MatCheckboxModule, MatDatepickerModule, MatRadioModule, MatSelectModule
   ],
-  providers: [person],
+  providers: [person, MatDatepickerModule ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
