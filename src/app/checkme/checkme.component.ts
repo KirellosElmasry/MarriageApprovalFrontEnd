@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./checkme.component.css']
 })
 export class checkmeComponent {
+
+  role = sessionStorage.getItem('role');
+
   showData : boolean;
   userNotFound : number;
   eid : string;

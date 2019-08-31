@@ -17,10 +17,22 @@ form {
     border: 1px solid #ccc;
     box-sizing: border-box;
   }
-  
+  .error {
+    color: red;
+  }
   /* Set a style for all buttons */
-  button {
+  .btn-login {
     background-color: #2991ab;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  /* Set a style for all buttons */
+  .btn-login:disabled {
+    background-color: #85898a;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -30,7 +42,7 @@ form {
   }
   
   /* Add a hover effect for buttons */
-  button:hover {
+  .btn-login:hover {
     opacity: 0.8;
   }
   

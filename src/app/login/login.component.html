@@ -1,14 +1,18 @@
 <div class="body">
     <h2>Login</h2>
-    <form>
+    <form (ngSubmit)= "onLogin()" #f="ngForm">
         <div class="container">
             <label for="uname" ><b>Username</b></label>
-            <input type="text"  [(ngModel)]='userName'placeholder="Enter Username" name="uname" required>
-
+            <input type="text"  [(ngModel)]='userName' placeholder="Enter Username" name="uname" required #uname="ngModel">
+            <div class="error" *ngIf="uname.errors?.required">
+                    userName is required.
+            </div>
             <label for="psw"><b>Password</b></label>
-            <input type="password" [(ngModel)]='password' placeholder="Enter Password" name="psw" required>
-
-            <button  (click)="onLogin()">Login</button>
+            <input type="password" [(ngModel)]='password' placeholder="Enter Password" name="psw" required #psw="ngModel">
+            <div class="error" *ngIf="psw.errors?.required">
+                    password is required.
+            </div>
+            <button class="btn-login" type="submit" [disabled]="!f.valid">Login</button>
         </div>
     </form>
 </div>

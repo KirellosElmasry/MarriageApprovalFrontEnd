@@ -5,7 +5,7 @@
             <input  [(ngModel)]='eid' class="form-control" id="eId">
             <button mat-raised-button color="primary" (click)="onClickMe()">Check</button>
            
-            <button mat-raised-button color="primary"  *ngIf="showData" (click)="secondClearance()">Second Clearance</button>
+            <button mat-raised-button color="primary"  *ngIf="showData && role == 'admin'" (click)="secondClearance()">Second Clearance</button>
             <button mat-raised-button color="primary" *ngIf="userNotFound == 1" (click)="newDocument()">Create New Document</button>
             
            
