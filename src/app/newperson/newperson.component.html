@@ -2,10 +2,10 @@
     <table>
         <tr>
             <td>Reference Number </td>
-            <td class="referenceNumber"><input  type="text" name="referenceNumber" required class="label" [(ngModel)]='personData.referenceNumber' #referenceNumber="ngModel"> </td>
+            <td class="referenceNumber"><input  type="text" name="referenceNumber" required pattern="[0-9]+\/[0-9]+" class="label" [(ngModel)]='personData.referenceNumber' #referenceNumber="ngModel"> </td>
             <td> الرقم المرجعي </td>
-            <div class="error" *ngIf="referenceNumber.errors?.required">
-                    Reference Number is required.
+            <div class="error" *ngIf="referenceNumber.errors?.required || referenceNumber.errors?.pattern">
+                    Required pattern num / num.
             </div>
         </tr>
         <tr>
@@ -58,7 +58,7 @@
 
         <tr>
             <td>EID </td>
-            <td class="middle"><input  name="eid" type="text" id="eid" required class="label" [(ngModel)]='personData.EID'
+            <td class="middle"><input  name="eid" type="text" id="eid" required class="label" [(ngModel)]='personData.emirateId'
                     #eid="ngModel"> </td>
             <td> رقم الهويه</td>
             <div class="error" *ngIf="eid.errors?.required">
@@ -268,5 +268,5 @@
             <td> نوع القرابه</td>
         </tr>
     </table>
-    <button class="button-submit" type="submit" [disabled]="!f.valid" >Save</button>
+    <button class="button-submit" type="submit" [disabled]="!f.valid || !submitEnabled" >Save</button>
 </form>

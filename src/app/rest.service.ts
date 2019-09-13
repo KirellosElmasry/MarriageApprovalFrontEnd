@@ -27,8 +27,8 @@ export class RestService {
     return body || { };
   }
 
-  getPerson(eId): Observable<any> {
-    return this.http.get(this.endpoint + 'person/' + eId).pipe(
+  getPerson(emirateId): Observable<any> {
+    return this.http.get(this.endpoint + 'person/' + emirateId).pipe(
       map(this.extractData));
   }
 

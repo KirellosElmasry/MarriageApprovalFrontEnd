@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-check-me',
   templateUrl: './checkme.component.html',
-  styleUrls: ['./checkme.component.css']
+  styleUrls: ['./checkme.component.css'],
+
 })
 export class checkmeComponent {
 
@@ -18,7 +19,7 @@ export class checkmeComponent {
   person = new person();
 
 
-  constructor(public rest: RestService, private router:Router ) {
+  constructor(public rest: RestService, private router:Router) {
     this.showData = false;
     this.userNotFound  = 0;
    }
@@ -55,8 +56,9 @@ export class checkmeComponent {
 
   
   public secondClearance() {
-    this.router.navigate(['secondClearance']);   
+    this.router.navigate(['secondClearance'], {state: {data: this.person}});
   }
+
   public newDocument() {
     this.router.navigate(['newperson']);   
   }

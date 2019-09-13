@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+import { person } from "../classes/person";
 
 @Component({
   selector: 'app-secondclearance',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SecondclearanceComponent implements OnInit {
 
+  personData: person;
+
   constructor() { }
 
   ngOnInit() {
+    this.personData = history.state.data
+    console.log("data "+this.personData.referenceNumber);
   }
 
 }
