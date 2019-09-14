@@ -15,6 +15,7 @@ export class NewpersonComponent implements OnInit {
   constructor(public rest: RestService) { }
 
   ngOnInit() {
+    this.personData.emirateId =  history.state.eid;
   }
   /**
    * save

@@ -1,1 +1,42 @@
-<p> personData {{personData.referenceNumber}}</p>
+<h3>Second Clearance</h3>
+<form (ngSubmit)="save()" #f="ngForm">
+    <table>
+        <tr>
+            <td>Reference Number </td>
+            <td class="referenceNumber">{{personData.referenceNumber}} </td>
+            <td> الرقم المرجعي </td>
+        </tr>
+
+        <tr>
+            <td>Engage Doc Number </td>
+            <td class="middle"><input type="text" required name="engageDocNumber" class="label"
+                    [(ngModel)]='secondClearance.engageDocNumber' #engageDocNumber="ngModel"> </td>
+            <td> رقم محضر الخطوبه </td>
+            <td>
+                <div class="error" *ngIf="engageDocNumber.errors?.required">
+                    Required 
+                </div>
+            </td> 
+        </tr>
+
+        <tr>
+            <td>Date</td>
+            <td class="middle">
+                <mat-form-field>
+                    <input name="secondClearanceDate" [(ngModel)]="secondClearance.secondClearanceDate" required matInput
+                        [matDatepicker]="myPicker1" #secondClearanceDate="ngModel">
+                    <mat-datepicker-toggle matSuffix [for]="myPicker1"></mat-datepicker-toggle>
+                    <mat-datepicker #myPicker1></mat-datepicker>
+                </mat-form-field>
+            </td>
+            <td>التاريخ </td>
+            <td>
+                <div class="error" *ngIf="secondClearanceDate.errors?.required">
+                    Required 
+                </div>
+            </td>
+
+        </tr>
+        <button class="button-submit" type="submit" [disabled]="!f.valid">Save</button>
+    </table>
+</form>

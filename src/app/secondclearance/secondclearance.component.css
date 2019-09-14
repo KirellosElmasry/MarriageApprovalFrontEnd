@@ -1,0 +1,39 @@
+ /* Set a style for all buttons */
+
+ table {
+    width: 75%;
+    border-collapse: collapse;
+  }
+ 
+  tr {
+    border: solid;
+    border-width: 1px 0;
+  }
+ 
+  td {
+    font-size: 20px;
+  }
+ 
+  .button-submit {
+    background-color: #2991ab;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+ 
+  .button-submit:disabled {
+   background-color: #7d8081;
+   color: white;
+   padding: 14px 20px;
+   margin: 8px 0;
+   border: none;
+   cursor: pointer;
+   width: 100%;
+  }
+ 
+  .error {
+    color: red;
+  }

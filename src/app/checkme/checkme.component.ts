@@ -13,16 +13,16 @@ export class checkmeComponent {
 
   role = sessionStorage.getItem('role');
 
-  showData : boolean;
-  userNotFound : number;
-  eid : string;
+  showData: boolean;
+  userNotFound: number;
+  eid: string;
   person = new person();
 
 
-  constructor(public rest: RestService, private router:Router) {
+  constructor(public rest: RestService, private router: Router) {
     this.showData = false;
-    this.userNotFound  = 0;
-   }
+    this.userNotFound = 0;
+  }
 
 
   onClickMe() {
@@ -34,32 +34,31 @@ export class checkmeComponent {
     this.rest.getPerson(this.eid).subscribe(res => {
       //show user found popup  
       this.person = res;
-      console.log("res "+res);
-      if(!this.person.name){
+      console.log("res " + res);
+      if (!this.person.emirateId) {
         console.log("User not found!");
-        this.userNotFound  =  1;
+        this.userNotFound = 1;
         this.person = new person();
         this.showData = false;
-      }else{ 
+      } else {
         this.showData = true;
-        this.userNotFound  = 0;
+        this.userNotFound = 0;
       }
     }, (err) => {
       if (err.status == 404)
         console.log("User not found!");
-        this.userNotFound  =  1;
+      this.userNotFound = 1;
       this.person = new person();
       this.showData = false;
     }
     );
   }
 
-  
   public secondClearance() {
-    this.router.navigate(['secondClearance'], {state: {data: this.person}});
+    this.router.navigate(['secondClearance'], { state: { data: this.person } });
   }
 
   public newDocument() {
-    this.router.navigate(['newperson']);   
+    this.router.navigate(['newperson'], { state: { eid: this.eid } });
   }
 }

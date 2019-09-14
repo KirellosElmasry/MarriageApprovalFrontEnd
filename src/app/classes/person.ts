@@ -45,4 +45,6 @@ export class person
     childsNum: string;
     childAge: string;
     childsBiptesm: string;
+    
+    hasSecondClearance: string;
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 import { person } from './classes/person';
@@ -34,6 +34,11 @@ export class RestService {
 
   savePerson(person: person): Observable<any> {
     return this.http.post(this.endpoint + 'newPerson/', person).pipe(
+      map(this.extractData));
+  }
+
+  updatePerson(person: person): Observable<any> {
+    return this.http.put(this.endpoint + 'updatePerson/', person).pipe(
       map(this.extractData));
   }
 
