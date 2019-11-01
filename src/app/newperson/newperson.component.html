@@ -1,272 +1,389 @@
-<form (ngSubmit)= "save()" #f="ngForm">
+<form (ngSubmit)="save()" #f="ngForm">
     <table>
-        <tr>
+        <!-- <tr>
             <td>Reference Number </td>
-            <td class="referenceNumber"><input  type="text" name="referenceNumber" required pattern="[0-9]+\/[0-9]+" class="label" [(ngModel)]='personData.referenceNumber' #referenceNumber="ngModel"> </td>
+            <td class="referenceNumber"><input type="text" name="referenceNumber" required pattern="[0-9]+\/[0-9]+"
+                    class="label" [(ngModel)]='personData.referenceNumber' #referenceNumber="ngModel"> </td>
             <td> الرقم المرجعي </td>
             <div class="error" *ngIf="referenceNumber.errors?.required || referenceNumber.errors?.pattern">
-                    Required pattern num / num.
+                Required pattern num / num.
             </div>
-        </tr>
+        </tr> -->
         <tr>
             <td>church </td>
-            <td class="middle"><input  type="text" name="church" class="label" [(ngModel)]='personData.church'> </td>
+            <td class="middle"><input type="text" name="church" class="label" required [(ngModel)]='personData.church'
+                    #church="ngModel"> </td>
             <td> الكنيسه </td>
+            <div class="error" *ngIf="church.errors?.required">
+                Required field.
+            </div>
         </tr>
 
         <tr>
             <td>name</td>
-            <td class="middle"><input type="text"  name="name" class="label" [(ngModel)]='personData.name'></td>
+            <td class="middle"><input type="text" name="name" required class="label" [(ngModel)]='personData.name'
+                    #name="ngModel"></td>
             <td>الاسم الثلاثي</td>
+            <div class="error" *ngIf="name.errors?.required">
+                Required field.
+            </div>
         </tr>
 
         <tr>
-            <td>birthDate </td>
+            <td>birth Date </td>
             <td class="middle">
-                <mat-form-field>
-                    <input name="birthDate"  [(ngModel)]="personData.birthDate" matInput [matDatepicker]="myPicker1">
-                    <mat-datepicker-toggle matSuffix [for]="myPicker1"></mat-datepicker-toggle>
-                    <mat-datepicker #myPicker1></mat-datepicker>
-                </mat-form-field>
+
+                <input name="birthDate" [(ngModel)]="personData.birthDate" matInput [matDatepicker]="myPicker1" required
+                    #birthDate="ngModel">
+                <mat-datepicker-toggle matSuffix [for]="myPicker1"></mat-datepicker-toggle>
+                <mat-datepicker #myPicker1></mat-datepicker>
+
             </td>
             <td> تاريخ الميلاد </td>
+            <div class="error" *ngIf="birthDate.errors?.required">
+                Required field.
+            </div>
         </tr>
         <tr>
-            <td>placeOfBirth </td>
-            <td class="middle"> <input name="placeOfBirth" type="text" class="label" [(ngModel)]='personData.placeOfBirth'> </td>
+            <td>place Of Birth </td>
+            <td class="middle"> <input name="placeOfBirth" type="text" class="label"
+                    [(ngModel)]='personData.placeOfBirth' required #placeOfBirth="ngModel"> </td>
             <td> مكان الميلاد </td>
+            <div class="error" *ngIf="placeOfBirth.errors?.required">
+                Required field.
+            </div>
         </tr>
 
         <tr>
-            <td>baptismDate </td>
+            <td>baptism Date </td>
             <td class="middle">
-                <mat-form-field>
-                    <input  name="baptismDate" [(ngModel)]="personData.baptismDate" matInput [matDatepicker]="myPicker2">
-                    <mat-datepicker-toggle matSuffix [for]="myPicker2"></mat-datepicker-toggle>
-                    <mat-datepicker #myPicker2></mat-datepicker>
-                </mat-form-field>
+
+                <input name="baptismDate" [(ngModel)]="personData.baptismDate" matInput [matDatepicker]="myPicker2"
+                    required #baptismDate="ngModel">
+                <mat-datepicker-toggle matSuffix [for]="myPicker2"></mat-datepicker-toggle>
+                <mat-datepicker #myPicker2></mat-datepicker>
+
             </td>
             <td> تاريخ العماد </td>
+            <div class="error" *ngIf="baptismDate.errors?.required">
+                Required field.
+            </div>
         </tr>
         <tr>
-            <td>placeOfBaptism </td>
+            <td>place Of Baptism </td>
             <td class="middle">
-                <input  name="placeOfBaptism" type="text" class="label" [(ngModel)]='personData.placeOfBaptism'>
+                <input name="placeOfBaptism" type="text" class="label" [(ngModel)]='personData.placeOfBaptism' required
+                    #placeOfBaptism="ngModel">
             </td>
             <td> مكان العماد</td>
+            <div class="error" *ngIf="placeOfBaptism.errors?.required">
+                Required field.
+            </div>
         </tr>
 
         <tr>
-            <td>EID </td>
-            <td class="middle"><input  name="eid" type="text" id="eid" required class="label" [(ngModel)]='personData.emirateId'
-                    #eid="ngModel"> </td>
+            <td>Emerates ID </td>
+            <td class="middle"><input name="eid" type="text" id="eid" required class="label"
+                    [(ngModel)]='personData.emirateId' #eid="ngModel"> </td>
             <td> رقم الهويه</td>
             <div class="error" *ngIf="eid.errors?.required">
                 EID is required.
             </div>
         </tr>
         <tr>
-            <td>edQualification </td>
-            <td class="middle"> <input  name="edQualification" type="text" class="label" [(ngModel)]='personData.edQualification'> </td>
+            <td>education Qualification </td>
+            <td class="middle"> <input name="edQualification" type="text" class="label"
+                    [(ngModel)]='personData.edQualification' required #edQualification="ngModel"> </td>
             <td> المؤهل </td>
+            <div class="error" *ngIf="edQualification.errors?.required">
+                Required field.
+            </div>
         </tr>
 
         <tr>
             <td>address </td>
-            <td class="middle"><input  name="address" type="text" class="label" [(ngModel)]='personData.address'> </td>
+            <td class="middle"><input name="address" type="text" class="label" [(ngModel)]='personData.address' required
+                    #address="ngModel"> </td>
             <td> العنوان</td>
+            <div class="error" *ngIf="address.errors?.required">
+                Required field.
+            </div>
         </tr>
         <tr>
-            <td>militaryStatus </td>
-            <td class="middle"><input  name="militaryStatus" type="text" class="label" [(ngModel)]='personData.militaryStatus'> </td>
+            <td>military Status </td>
+            <td class="middle">
+                 <mat-select name="militaryStatus" [(ngModel)]='personData.militaryStatus'>
+                     <mat-option *ngFor="let status of militaryStatus" [value]="status.value">
+                        {{status.viewValueEN}} - {{status.viewValueAR}}
+                     </mat-option>
+                 </mat-select>
+            </td>
             <td> الموقف من التجنيد</td>
         </tr>
         <tr>
-            <td>jobTitle </td>
-            <td class="middle"> <input  name="jobTitle" type="text" class="label" [(ngModel)]='personData.jobTitle'> </td>
+            <td>job Title </td>
+            <td class="middle"> <input name="jobTitle" type="text" class="label" [(ngModel)]='personData.jobTitle'
+                    required #jobTitle="ngModel"> </td>
             <td> العمل</td>
+            <div class="error" *ngIf="jobTitle.errors?.required">
+                Required field.
+            </div>
         </tr>
         <tr>
-            <td>jobAddress </td>
-            <td class="middle"> <input  name="jobAddress" type="text" class="label" [(ngModel)]='personData.jobAddress'> </td>
+            <td>job Address </td>
+            <td class="middle"> <input name="jobAddress" type="text" class="label" [(ngModel)]='personData.jobAddress'
+                    required #jobAddress="ngModel"> </td>
             <td> عنوان العمل</td>
+            <div class="error" *ngIf="jobAddress.errors?.required">
+                Required field.
+            </div>
         </tr>
         <tr>
-            <td>relatedChurch </td>
-            <td class="middle"> <input  name="relatedChurch" type="text" class="label" [(ngModel)]='personData.relatedChurch'> </td>
+            <td>related Church </td>
+            <td class="middle"> <input name="relatedChurch" type="text" class="label"
+                    [(ngModel)]='personData.relatedChurch' required #relatedChurch="ngModel"> </td>
             <td> الكنيسه التابع لها</td>
+            <div class="error" *ngIf="relatedChurch.errors?.required">
+                Required field.
+            </div>
         </tr>
         <tr>
-            <td>confessorPriest </td>
-            <td class="middle"> <input  name="confessorPriest" type="text" class="label" [(ngModel)]='personData.confessorPriest'> </td>
+            <td>confessor Priest </td>
+            <td class="middle"> <input name="confessorPriest" type="text" class="label"
+                    [(ngModel)]='personData.confessoPriest' required #confessorPriest="ngModel"> </td>
             <td> اب الاعتراف</td>
+            <div class="error" *ngIf="confessorPriest.errors?.required">
+                Required field.
+            </div>
         </tr>
         <tr>
-            <td>confessorChurch </td>
-            <td class="middle"> <input  name="confessorChurch" type="text" class="label" [(ngModel)]='personData.confessorChurch'> </td>
+            <td>confessor Church </td>
+            <td class="middle"> <input name="confessorChurch" type="text" class="label"
+                    [(ngModel)]='personData.confessorChurch' required #confessorChurch="ngModel"> </td>
             <td> كنيسه اب الاعتراف</td>
+            <div class="error" *ngIf="confessorChurch.errors?.required">
+                Required field.
+            </div>
         </tr>
         <tr>
-            <td>confessionRate </td>
-            <td class="middle"> <input  name="confessionRate" type="text" class="label" [(ngModel)]='personData.confessionRate'> </td>
+            <td>confession Rate </td>
+            <td class="middle"> <input name="confessionRate" type="text" class="label"
+                    [(ngModel)]='personData.confessionRate' required #confessionRate="ngModel"> </td>
             <td> معدل الاعتراف</td>
+            <div class="error" *ngIf="confessionRate.errors?.required">
+                Required field.
+            </div>
         </tr>
         <tr>
-            <td>eucharistRate </td>
-            <td class="middle"> <input  name="eucharistRate" type="text" class="label" [(ngModel)]='personData.eucharistRate'> </td>
+            <td>eucharist Rate </td>
+            <td class="middle"> <input name="eucharistRate" type="text" class="label"
+                    [(ngModel)]='personData.eucharistRate' required #eucharistRate="ngModel"> </td>
             <td> معدل التناول</td>
+            <div class="error" *ngIf="eucharistRate.errors?.required">
+                Required field.
+            </div>
         </tr>
         <tr>
-            <td>foreignCountryName </td>
-            <td class="middle"> <input  name="foreignCountryName" type="text" class="label" [(ngModel)]='personData.foreignCountryName'> </td>
+            <td>Travelled Abroad Before </td>
+            <td class="middle">
+                <input name="options" [(ngModel)]="traveledBefore" type="radio" [value]="true"
+                    [checked]="traveledBefore" /> Yes
+                <input name="options" [(ngModel)]="traveledBefore" type="radio" [value]="false"
+                    [checked]="!traveledBefore" /> No
+            </td>
             <td> السفر الي الخارج</td>
         </tr>
-        <tr>
-            <td>foreignCountryDate </td>
+        <tr *ngIf="traveledBefore">
+            <td>foreign Country Name </td>
+            <td class="middle"> <input name="foreignCountryName" type="text" class="label"
+                    [(ngModel)]='personData.foreignCountryName'> </td>
+            <td> اسم البلد</td>
+        </tr>
+        <tr *ngIf="traveledBefore">
+            <td>foreign Country Date </td>
             <td class="middle">
-                <mat-form-field>
-                    <input  name="foreignCountryDate" [(ngModel)]="personData.foreignCountryDate" matInput [matDatepicker]="myPicker3">
-                    <mat-datepicker-toggle matSuffix [for]="myPicker3"></mat-datepicker-toggle>
-                    <mat-datepicker #myPicker3></mat-datepicker>
-                </mat-form-field>
+                <input name="foreignCountryDate" [(ngModel)]="personData.foreignCountryDate" matInput
+                    [matDatepicker]="myPicker3">
+                <mat-datepicker-toggle matSuffix [for]="myPicker3"></mat-datepicker-toggle>
+                <mat-datepicker #myPicker3></mat-datepicker>
             </td>
             <td> تاريخ السفر</td>
         </tr>
         <tr>
-            <td>engagedBefore </td>
-            <td class="middle"> <input  name="engagedBefore" type="text" class="label" [(ngModel)]='personData.engagedBefore'> </td>
+            <td>engaged Before </td>
+            <td class="middle">
+                <input name="engagedBefore" [(ngModel)]="personData.engagedBefore" type="radio" [value]="true"
+                    [checked]="personData.engagedBefore" required #engagedBefore="ngModel" /> Yes
+                <input name="engagedBefore" [(ngModel)]="personData.engagedBefore" type="radio" [value]="false"
+                    [checked]="!personData.engagedBefore" required #engagedBefore="ngModel" /> No
             <td> خطوبه سابقه</td>
+            <div class="error" *ngIf="engagedBefore.errors?.required">
+                Required field.
+            </div>
         </tr>
         <tr>
-            <td>marriedOutside </td>
-            <td class="middle"> <input  name="marriedOutside" type="text" class="label" [(ngModel)]='personData.marriedOutside'> </td>
+            <td>married Before </td>
+            <td class="middle">
+                <input name="marriedBefore" [(ngModel)]="personData.marriedBefore" type="radio" [value]="true"
+                    [checked]="personData.marriedBefore" /> Yes
+                <input name="marriedBefore" [(ngModel)]="personData.marriedBefore" type="radio" [value]="false"
+                    [checked]="!personData.marriedBefore" /> No
+            </td>
+            <td> زواج سابق</td>
+        </tr>
+
+        <tr *ngIf="personData.marriedBefore">
+            <td>married Outside </td>
+            <td class="middle"> <input name="marriedOutside" type="text" class="label"
+                    [(ngModel)]='personData.marriedOutside'> </td>
             <td> زواج داخل مصر المكان و التاريخ و الكاهن</td>
         </tr>
-        <tr>
+        <tr *ngIf="personData.marriedBefore">
             <td>marriedInside </td>
-            <td class="middle"> <input  name="marriedInside" type="text" class="label" [(ngModel)]='personData.marriedInside'> </td>
+            <td class="middle"> <input name="marriedInside" type="text" class="label"
+                    [(ngModel)]='personData.marriedInside'> </td>
             <td> زواج خارج مصر المكان و التاريخ و الكاهن </td>
         </tr>
-        <tr>
-            <td>churchMarriage </td>
-            <td class="middle"> <input  name="churchMarriage" type="text" class="label" [(ngModel)]='personData.churchMarriage'> </td>
-            <td> زواج كنسي</td>
+
+        <tr *ngIf="personData.marriedBefore">
+            <td>marriage type </td>
+            <td class="middle">
+                 <mat-select [(ngModel)]="personData.marriageType" id="marriageType" name="marriage_Type" required>
+                     <mat-option value="civil">civil </mat-option>
+                     <mat-option value="church">church </mat-option>
+                 </mat-select>
+            <td> نوع الزواج</td>
         </tr>
-        <tr>
-            <td>marriagePlace </td>
-            <td class="middle"> <input  name="marriagePlace" type="text" class="label" [(ngModel)]='personData.marriagePlace'> </td>
+
+        <tr *ngIf=" personData.marriedBefore  && personData.marriageType == 'church'">
+            <td>marriage Place </td>
+            <td class="middle"> <input name="marriagePlace" type="text" class="label"
+                    [(ngModel)]='personData.marriagePlace'> </td>
             <td> مكان الزواج</td>
         </tr>
-        <tr>
-            <td>marriagePriest </td>
-            <td class="middle"> <input  name="marriagePriest" type="text" class="label" [(ngModel)]='personData.marriagePriest'> </td>
+        <tr *ngIf="personData.marriedBefore  && personData.marriageType == 'church'">
+            <td>marriage Priest </td>
+            <td class="middle"> <input name="marriagePriest" type="text" class="label"
+                    [(ngModel)]='personData.marriagePriest'> </td>
             <td> الاب الكاهن</td>
         </tr>
-        <tr>
-            <td>civilMarriage </td>
-            <td class="middle"> <input  name="civilMarriage" type="text" class="label" [(ngModel)]='personData.civilMarriage'> </td>
+        <tr *ngIf="personData.marriedBefore && personData.marriageType == 'civil'">
+            <td>civil Marriage soucre</td>
+            <td class="middle"> <input name="civilMarriage" type="text" class="label"
+                    [(ngModel)]='personData.civilMarriage'> </td>
             <td> جهه الزواج المدني </td>
         </tr>
-        <tr>
-            <td>civilMarriageDate </td>
+        <tr *ngIf="personData.marriedBefore && personData.marriageType == 'civil'">
+            <td>civil Marriage Date </td>
             <td class="middle">
-                <mat-form-field>
-                    <input  name="civilMarriageDate" [(ngModel)]="personData.civilMarriageDate" matInput [matDatepicker]="myPicker4">
-                    <mat-datepicker-toggle matSuffix [for]="myPicker4"></mat-datepicker-toggle>
-                    <mat-datepicker #myPicker4></mat-datepicker>
-                </mat-form-field>
+
+                <input name="civilMarriageDate" [(ngModel)]="personData.civilMarriageDate" matInput
+                    [matDatepicker]="myPicker4">
+                <mat-datepicker-toggle matSuffix [for]="myPicker4"></mat-datepicker-toggle>
+                <mat-datepicker #myPicker4></mat-datepicker>
+
             </td>
             <td> تاريخ الزواج المدني </td>
         </tr>
         <tr>
-            <td>maritalStatus </td>
-            <td class="middle"> <input  name="maritalStatus" type="text" class="label" [(ngModel)]='personData.maritalStatus'> </td>
+            <td>marital Status </td>
+            <td class="middle">
+                 <mat-select [(ngModel)]="personData.maritalStatus" name="mStatus">
+                    <mat-option *ngFor="let status of maritalStatus" [value]="status.value">
+                        {{status.viewValueEN}} - {{status.viewValueAR}}
+                    </mat-option>
+                </mat-select>
+            </td>
             <td> الحاله الاجتماعيه</td>
         </tr>
-        <tr>
-            <td>widowhoodDate </td>
+        <tr *ngIf="personData.maritalStatus == '3'">
+            <td>widowhood Date </td>
             <td class="middle">
-                <mat-form-field>
-                    <input  name="widowhoodDate" [(ngModel)]="personData.widowhoodDate" matInput [matDatepicker]="myPicker5">
-                    <mat-datepicker-toggle matSuffix [for]="myPicker5"></mat-datepicker-toggle>
-                    <mat-datepicker #myPicker5></mat-datepicker>
-                </mat-form-field>
+
+                <input name="widowhoodDate" [(ngModel)]="personData.widowhoodDate" matInput [matDatepicker]="myPicker5">
+                <mat-datepicker-toggle matSuffix [for]="myPicker5"></mat-datepicker-toggle>
+                <mat-datepicker #myPicker5></mat-datepicker>
+
             </td>
             <td> تاريخ الترمل</td>
         </tr>
-        <tr>
-            <td>marriedBeforeWidowhood </td>
-            <td class="middle"> <input  name="marriedBeforeWidowhood" type="text" class="label" [(ngModel)]='personData.marriedBeforeWidowhood'> </td>
+        <tr *ngIf="personData.maritalStatus == '3'">
+            <td>married Before Widowhood </td>
+            <td class="middle"> <input name="marriedBeforeWidowhood" type="text" class="label"
+                    [(ngModel)]='personData.marriedBeforeWidowhood'> </td>
             <td> زواج قبل الترمل</td>
         </tr>
-        <tr>
-            <td>marriageBeforeWidowhoodInfo </td>
-            <td class="middle"> <input  name="marriageBeforeWidowhoodInfo" type="text" class="label" [(ngModel)]='personData.marriageBeforeWidowhoodInfo'>
+        <tr *ngIf="personData.maritalStatus == '3'">
+            <td>marriage Before Widowhood Info </td>
+            <td class="middle"> <input name="marriageBeforeWidowhoodInfo" type="text" class="label"
+                    [(ngModel)]='personData.marriageBeforeWidowhoodInfo'>
             </td>
             <td> بمن و متي و اين </td>
         </tr>
-        <tr>
-            <td>divorced </td>
-            <td class="middle"> <input  name="divorced" type="text" class="label" [(ngModel)]='personData.divorced'> </td>
-            <td> مطلق</td>
-        </tr>
-        <tr>
+        <tr *ngIf="personData.maritalStatus == '2'">
             <td>court </td>
-            <td class="middle"> <input  name="court" type="text" class="label" [(ngModel)]='personData.court'> </td>
+            <td class="middle"> <input name="court" type="text" class="label" [(ngModel)]='personData.court'> </td>
             <td> المحكمه</td>
         </tr>
-        <tr>
-            <td>caseNum </td>
-            <td class="middle"> <input  name="caseNum" type="text" class="label" [(ngModel)]='personData.caseNum'> </td>
+        <tr *ngIf="personData.maritalStatus == '2'">
+            <td>case Number </td>
+            <td class="middle"> <input name="caseNum" type="text" class="label" [(ngModel)]='personData.caseNum'> </td>
             <td> رقم القضيه</td>
         </tr>
-        <tr>
-            <td>CaseDate </td>
+        <tr *ngIf="personData.maritalStatus == '2'">
+            <td>Case Date </td>
             <td class="middle">
-                <mat-form-field>
-                    <input  name="caseDate" [(ngModel)]="personData.caseDate" matInput [matDatepicker]="myPicker6">
-                    <mat-datepicker-toggle matSuffix [for]="myPicker6"></mat-datepicker-toggle>
-                    <mat-datepicker #myPicker6></mat-datepicker>
-                </mat-form-field>
+
+                <input name="caseDate" [(ngModel)]="personData.caseDate" matInput [matDatepicker]="myPicker6">
+                <mat-datepicker-toggle matSuffix [for]="myPicker6"></mat-datepicker-toggle>
+                <mat-datepicker #myPicker6></mat-datepicker>
+
             </td>
             <td> تاريخ القضيه</td>
         </tr>
-        <tr>
-            <td>marriageApprovalSource </td>
-            <td class="middle"> <input  name="marriageApprovalSource" type="text" class="label" [(ngModel)]='personData.marriageApprovalSource'> </td>
+        <tr *ngIf="personData.maritalStatus != '1'">
+            <td>marriage Approval Source </td>
+            <td class="middle"> <input name="marriageApprovalSource" type="text" class="label"
+                    [(ngModel)]='personData.marriageApprovalSource'> </td>
             <td> مصدر التصريح بالزواج</td>
         </tr>
-        <tr>
-            <td>marriageApprovalDate </td>
+        <tr *ngIf="personData.maritalStatus != '1'">
+            <td>marriage Approval Date </td>
             <td class="middle">
-                <mat-form-field>
-                    <input  name="marriageApprovalDate" [(ngModel)]="personData.marriageApprovalDate" matInput [matDatepicker]="myPicker7">
-                    <mat-datepicker-toggle matSuffix [for]="myPicker7"></mat-datepicker-toggle>
-                    <mat-datepicker #myPicker7></mat-datepicker>
-                </mat-form-field>
+
+                <input name="marriageApprovalDate" [(ngModel)]="personData.marriageApprovalDate" matInput
+                    [matDatepicker]="myPicker7">
+                <mat-datepicker-toggle matSuffix [for]="myPicker7"></mat-datepicker-toggle>
+                <mat-datepicker #myPicker7></mat-datepicker>
+
             </td>
             <td> تاريخ التصريح بالزواج</td>
         </tr>
-        <tr>
-            <td>childsNum </td>
-            <td class="middle"> <input  name="childsNum" type="text" class="label" [(ngModel)]='personData.childsNum'> </td>
+        <tr *ngIf="personData.maritalStatus != '1'">
+            <td>childs Number </td>
+            <td class="middle"> <input name="childsNum" type="text" class="label" [(ngModel)]='personData.childsNum'>
+            </td>
             <td> عدد الاولاد</td>
         </tr>
-        <tr>
-            <td>childAges </td>
-            <td class="middle"> <input  name="childAges" type="text" class="label" [(ngModel)]='personData.childAges'> </td>
+        <tr *ngIf="personData.maritalStatus != '1'">
+            <td>childs Age </td>
+            <td class="middle"> <input name="childAges" type="text" class="label" [(ngModel)]='personData.childAge'>
+            </td>
             <td> اعمارهم</td>
         </tr>
-        <tr>
-            <td>childsBiptesm </td>
-            <td class="middle"> <input  name="childsBiptesm" type="text" class="label" [(ngModel)]='personData.childsBiptesm'> </td>
+        <tr *ngIf="personData.maritalStatus != '1'">
+            <td>childs Biptesm </td>
+            <td class="middle"> <input name="childsBiptesm" type="text" class="label"
+                    [(ngModel)]='personData.childsBiptesm'> </td>
             <td> عمادهم</td>
         </tr>
-        <tr>
-            <td>familyLinks </td>
-            <td class="middle"> <input  name="familyLinks" type="text" class="label" [(ngModel)]='personData.familyLinks'> </td>
+        <tr *ngIf="personData.maritalStatus != '1'">
+            <td>family Link </td>
+            <td class="middle"> <input name="familyLinks" type="text" class="label"
+                    [(ngModel)]='personData.familyLinks'> </td>
             <td> نوع القرابه</td>
         </tr>
     </table>
-    <button class="button-submit" type="submit" [disabled]="!f.valid || !submitEnabled" >Save</button>
+    <button class="button-submit" type="submit" [disabled]="!f.valid || !submitEnabled">Save</button>
+    <!-- <button class="button-submit" type="submit">Save</button> -->
 </form>

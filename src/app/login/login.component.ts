@@ -16,12 +16,14 @@ export class LoginComponent implements OnInit {
   role: string;
   loginResult: loginResult;
   loginUser = new user();
+  showSpinner : boolean = false;
 
   constructor(public loginService: LoginService,private router:Router) { }
 
   ngOnInit() {}
 
   onLogin(){
+    this.showSpinner = true;
     //console.log(this.userName+"  "+ this.password);
     this.loginUser.userName = this.userName;
     this.loginUser.password = this.password;
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit {
     .subscribe(
       data=>
       {
+        this.showSpinner = false;
         this.loginResult = data;    
         console.log("  this.loginResult.message "+this.loginResult.message);          
         if(this.loginResult.message == "Login Successfully"){
@@ -41,7 +44,10 @@ export class LoginComponent implements OnInit {
         }else{
           console.log("wrong username or password!");
         }
-      }
-    )
+      } , (err) => {
+        console.log("error "+err.message);
+        alert(" Error in login process: "+err.message);
+      });
+    
   }
 }

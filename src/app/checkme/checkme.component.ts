@@ -17,7 +17,7 @@ export class checkmeComponent {
   userNotFound: number;
   eid: string;
   person = new person();
-
+  showSpinner : boolean = false;
 
   constructor(public rest: RestService, private router: Router) {
     this.showData = false;
@@ -31,7 +31,9 @@ export class checkmeComponent {
 
   getPerson() {
     console.log(this.eid);
+    this.showSpinner  = true;
     this.rest.getPerson(this.eid).subscribe(res => {
+      this.showSpinner  = false;
       //show user found popup  
       this.person = res;
       console.log("res " + res);
@@ -45,6 +47,7 @@ export class checkmeComponent {
         this.userNotFound = 0;
       }
     }, (err) => {
+      this.showSpinner  = false;
       if (err.status == 404)
         console.log("User not found!");
       this.userNotFound = 1;

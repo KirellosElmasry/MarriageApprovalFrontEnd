@@ -9,6 +9,9 @@
             <button mat-raised-button color="primary" *ngIf="userNotFound == 1" (click)="newDocument()">Create New Document</button>
            
             <h1 class = "alert" *ngIf="userNotFound == 1">Person not found !</h1>
+            <div *ngIf="showSpinner">
+                    <mat-spinner></mat-spinner>
+            </div>
             <div class="data">
                 <app-persondata [personData]="person" *ngIf="showData"></app-persondata>                   
             </div>            

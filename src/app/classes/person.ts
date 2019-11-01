@@ -47,4 +47,7 @@ export class person
     childsBiptesm: string;
     
     hasSecondClearance: string;
+    marriedBefore: string;
+    marriageType: string;
+
 }

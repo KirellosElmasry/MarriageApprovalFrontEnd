@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { person } from "../classes/person";
 import { RestService } from '../rest.service';
-import { FormGroup } from '@angular/forms';
+
+export interface Status {
+  value: string;
+  viewValueEN: string;
+  viewValueAR: string;
+}
 
 @Component({
   selector: 'app-newperson',
@@ -12,6 +17,19 @@ export class NewpersonComponent implements OnInit {
 
   personData = new person();
   submitEnabled : boolean  = true;
+
+  militaryStatus: Status[] = [
+    {value: '0', viewValueEN: 'Finished', viewValueAR: 'اتم الخدمه'},
+    {value: '1', viewValueEN: 'postponed', viewValueAR: 'تأجيل'},
+    {value: '2', viewValueEN: 'Exemption', viewValueAR: 'اعفاء'}
+  ];
+
+  maritalStatus: Status[] = [
+    {value: '1', viewValueEN: 'Single', viewValueAR: 'اعزب'},
+    {value: '2', viewValueEN: 'divorcee', viewValueAR: 'مطلق'},
+    {value: '3', viewValueEN: 'Widowed', viewValueAR: 'ارمل'}
+  ];
+
   constructor(public rest: RestService) { }
 
   ngOnInit() {
@@ -20,8 +38,14 @@ export class NewpersonComponent implements OnInit {
   /**
    * save
    */
+  public TestSave() {
+    console.log("maritalStatus " + this.personData.maritalStatus);
+    console.log("marriageType " + this.personData.marriageType);
+    console.log("foreignCountryDate " + this.personData.foreignCountryDate);
+    console.log("militaryStatus " + this.personData.militaryStatus);
+  }
   public save() {
-
+    
     this.submitEnabled = false;
 
     if (this.personData.birthDate) this.personData.birthDate.setHours(4);
