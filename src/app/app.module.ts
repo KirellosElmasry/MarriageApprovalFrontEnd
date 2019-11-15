@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { PersondataComponent } from './persondata/persondata.component';
-import { person } from "./classes/person";
+import { person } from "./utils/person";
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NewpersonComponent } from './newperson/newperson.component';
 import { SecondclearanceComponent } from './secondclearance/secondclearance.component';

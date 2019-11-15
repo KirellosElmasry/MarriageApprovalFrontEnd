@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map} from 'rxjs/operators';
-import { person } from './classes/person';
+import { person } from './utils/person';
 
 
 @Injectable({

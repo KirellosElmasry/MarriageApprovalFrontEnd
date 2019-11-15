@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { person } from "../classes/person";
+import { person } from "../utils/person";
 import { SecondClearanceService } from '../services/second-clearance.service';
-import { SecondClearance } from '../classes/SecondClearance';
+import { SecondClearance } from '../utils/SecondClearance';
 import { RestService } from '../rest.service';
 
 @Component({

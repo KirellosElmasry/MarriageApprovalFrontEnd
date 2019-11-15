@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RestService } from '../rest.service';
-import { person } from "../classes/person";
+import { person } from "../utils/person";
 import { Router } from '@angular/router';
 
 @Component({
