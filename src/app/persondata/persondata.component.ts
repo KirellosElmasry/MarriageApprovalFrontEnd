@@ -25,9 +25,9 @@ export class PersondataComponent implements OnInit {
     { value: '2', viewValueEN: 'divorcee', viewValueAR: 'مطلق' },
     { value: '3', viewValueEN: 'Widowed', viewValueAR: 'ارمل' }
   ];
-  
-  constructor(public restService: RestService) {
 
+  constructor(public restService: RestService) {
+  
   }
 
   ngOnInit() {
@@ -35,14 +35,19 @@ export class PersondataComponent implements OnInit {
 
   onFileChanged(event) {
     this.selectedFile = event.target.files[0];
+    
     if (this.selectedFile) {
       console.log("File name : " + this.selectedFile.name);
 
       this.restService.uploadFile(this.selectedFile, this.personData.referenceNumber).subscribe(res => {
-        console.log("result "+res);
+        console.log("result " + res);
       }, (err) => {
-        console.log("error "+err);
+        console.log("error " + err);
       });
     }
+  }
+
+  onUpload(){
+
   }
 }

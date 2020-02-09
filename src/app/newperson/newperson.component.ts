@@ -63,6 +63,8 @@ export class NewpersonComponent implements OnInit {
     if (this.personData.foreignCountryDate) this.personData.foreignCountryDate.setHours(4);
     if (this.personData.baptismDate) this.personData.baptismDate.setHours(4);
 
+    this.personData.status ="active";
+    
     this.generateReferenceNumber();
 
     console.log("emirateId " + this.personData.emirateId);

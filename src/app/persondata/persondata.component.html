@@ -250,7 +250,14 @@
         <td> تاريخ اخر تعديل</td>
     </tr>
     <tr>
+        <td>Status </td>
+        <td class="middle"> {{personData.Status}} </td>
+        <td> الحاله</td>
+    </tr>
+    
+    <tr>
         <td>Attache Image </td>
         <td><input type="file" (change)="onFileChanged($event)"></td>
+        <button type="button" (click)="onUpload()">Upload</button>
     </tr>
 </table>

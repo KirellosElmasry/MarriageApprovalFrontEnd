@@ -23,4 +23,7 @@ export class SecondClearanceService {
     {responseType:'json'});
   }
 
+  getSecondClearanceByEid(eid: String): Observable<any> {
+    return this.http.get(this.endpoint + '/SecondClearanceByEID/'+eid);
+  }
 }

@@ -15,7 +15,7 @@ h3{
     width: 25%;  
     margin-right: 8px;
 }
-#eId{
-    height: 35px;
-    margin: 10px;
+
+#searchBtn{
+    width: 100%;  
 }

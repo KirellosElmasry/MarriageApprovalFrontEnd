@@ -49,5 +49,5 @@ export class person
     hasSecondClearance: string;
     marriedBefore: string;
     marriageType: string;
-
+    status: string;
 }

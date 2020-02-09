@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 example-button-row">
+            <table>
+                <tr>
+                    <h3>Search For Person</h3>
+                </tr>
+                <tr>
+                    <td><label id="eidSearchLbl">Seach by Emirates ID</label></td>
+
+                    <td><input [(ngModel)]='eid' class="form-control" id="eId"></td>
+                </tr>
+                <tr>
+                    <td><label id="nameSearchLbl">Seach by Name</label></td>
+                    <td><input [(ngModel)]='name' class="form-control" id="name"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button mat-raised-button color="primary" (click)="searchForPerson()" id="searchBtn">Search</button></td>
+                </tr>
+            </table>
+            <h1 class="alert" *ngIf="userNotFound == 1">Person not found !</h1>
+            <div *ngIf="showSpinner">
+                <mat-spinner></mat-spinner>
+            </div>
+            <div>
+                <mat-nav-list>
+                    <mat-list-item *ngFor="let clearance of secondClearanceList">
+                        <a matLine href=""> ReferenceNumber {{ clearance.referenceNumber }} - EngageDocNumber:
+                            {{ clearance.engageDocNumber }} - Date: {{ clearance.secondClearanceDate }}</a>
+                        <button mat-icon-button (click)="showInfo(clearance)">Show Details</button>
+                    </mat-list-item>
+                </mat-nav-list>
+            </div>
+            <div class="data">
+                <app-persondata [personData]="person" *ngIf="showData"></app-persondata>
+            </div>
+        </div>
+    </div>
+</div>

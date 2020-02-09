@@ -20,16 +20,16 @@ export class SecondclearanceComponent implements OnInit {
 
   ngOnInit() {
     this.personData = history.state.data;
-    console.log("referenceNumber " + this.personData.referenceNumber);
+    console.log("eid " + this.personData.emirateId);
   }
 
   save() {
 
-
-    console.log("engageDocNumber " + this.secondClearance.engageDocNumber);
+    console.log("emiratesid " + this.personData.emirateId);
     if (this.secondClearance.secondClearanceDate) this.secondClearance.secondClearanceDate.setHours(4);
     this.secondClearance.referenceNumber = this.personData.referenceNumber;
     if (this.secondClearance.referenceNumber) {
+      this.secondClearance.emiratesId = this.personData.emirateId;
       this.secondClearanceService.saveSecondClearance(this.secondClearance).subscribe(
         data => {
           if (data) {

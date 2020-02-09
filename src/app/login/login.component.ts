@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
           console.log("Login success role is "+ this.loginResult.role);
           sessionStorage.setItem('role', this.loginResult.role);
 
-          this.router.navigate(['welcome']);
+          this.router.navigate(['showServices']);
         }else{
           console.log("wrong username or password!");
         }

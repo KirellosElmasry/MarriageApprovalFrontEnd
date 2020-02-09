@@ -2,19 +2,58 @@
     <h2>Login</h2>
     <form (ngSubmit)="onLogin()" #f="ngForm">
         <div class="container">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" [(ngModel)]='userName' placeholder="Enter Username" name="uname" required
-                #uname="ngModel">
-            <div class="error" *ngIf="uname.errors?.required">
-                userName is required.
-            </div>
-            <label for="psw"><b>Password</b></label>
-            <input type="password" [(ngModel)]='password' placeholder="Enter Password" name="psw" required
-                #psw="ngModel">
-            <div class="error" *ngIf="psw.errors?.required">
-                password is required.
-            </div>
-            <button class="btn-login" type="submit" [disabled]="!f.valid">Login</button>
+            <table>
+                <tr>
+                    <td>
+                        <label for="uname"><b>User Name</b></label>
+                    </td>
+                    <td>
+                        <input type="text" [(ngModel)]='userName' placeholder="Enter Username" name="uname" required
+                            #uname="ngModel">
+
+
+                        <div class="error" *ngIf="uname.errors?.required">
+                            User Name is required.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="psw"><b>Password</b></label>
+                    </td>
+                    <td>
+                        <input type="password" [(ngModel)]='password' placeholder="Enter Password" name="psw" required
+                            #psw="ngModel">
+                        <div class="error" *ngIf="psw.errors?.required">
+                            password is required.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="chrch"><b>Church</b></label>
+                    </td>
+                    <td>
+                        <mat-select [(ngModel)]='church' name="chrch" 
+                        #chrch="ngModel">
+                            <!-- <mat-option *ngFor="let church of churchList" [value]="church.id">
+                    {{church.name}}
+                </mat-option> -->
+                            <mat-option>church 1</mat-option>
+                            <mat-option>church 2</mat-option>
+                        </mat-select>
+                        <!-- <div class="error" *ngIf="chrch.errors?.required">
+                            church is required.
+                        </div> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button class="btn-login" type="submit" [disabled]="!f.valid">Login</button>
+                    </td>
+                </tr>
+            </table>
         </div>
     </form>
     <div *ngIf="showSpinner">
